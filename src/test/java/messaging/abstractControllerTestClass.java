@@ -3,7 +3,6 @@ package messaging;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -34,11 +33,11 @@ public abstract class abstractControllerTestClass extends abstractTestClass {
      * @return A String of JSON.
      * @throws JsonProcessingException Thrown if an error occurs while mapping.
      */
-	protected String mapToJson (Object obj) throws JsonProcessingException{
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(obj);
-	}
-	
+//	protected String mapToJson (Object obj) throws JsonProcessingException{
+//		ObjectMapper mapper = new ObjectMapper();
+//		return mapper.writeValueAsString(obj);
+//	}
+//
 	/**
      * Maps a String of JSON into an instance of a Class of type T. Uses a
      * Jackson ObjectMapper.
@@ -51,10 +50,10 @@ public abstract class abstractControllerTestClass extends abstractTestClass {
      * @throws IOException Thrown if an error occurs while mapping.
      */
 	
-	protected <T> T mapFromJson (String json, Class<T> clazz)
-		throws JsonParseException, JsonMappingException, IOException{
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.readValue(json, clazz);
-	}
+//	protected <T> T mapFromJson (String json, Class<T> clazz)
+//		throws JsonParseException, JsonMappingException, IOException{
+//		ObjectMapper mapper = new ObjectMapper();
+//		return mapper.readValue(json, clazz);
+//	}
 	
 }

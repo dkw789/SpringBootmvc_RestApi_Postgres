@@ -42,25 +42,26 @@ public class MessageTest extends abstractTestClass {
 
 	@Test
 	public void testSave() {
-/*
 		Message obj = new Message();
+		obj.setId(1);
 		obj.setUserName("houde");
-		obj.setCreatedAt("13:26");
-//		obj.setCreatedBy("houde");
-		obj.setMessageID("fourth_m");
-		obj.setUpdatedAt("13:33");
-//		obj.setUpdatedBy("houde");
+		//obj.setCreatedAt(03/05/2016);
+		obj.setMessageID("007");
+		obj.setMessageContent("Hello");
+		//obj.getLatitude("152");
+		obj.setLongitude("178");
+		obj.setLocation("Markham");
 
 		repo.save(obj);
 		Assert.assertNotNull("failure --expecting list not null", obj);
-		Assert.assertEquals("failer --expecting Messages id to be fourth_m", "fourth_m", obj.getMessageID());
-*/
+		Assert.assertEquals("failer --expecting Messages id to be 007", "007", obj.getMessageID());
 
 	}
 
 	@Test
 	public void testDelete() {
-		long id = 1;
+
+			long id = 1;
 		repo.delete(id);
 		Assert.assertNull("failure --expecting Messages 1 to be gone", repo.findOne(id));
 

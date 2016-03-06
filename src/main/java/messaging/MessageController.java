@@ -53,7 +53,6 @@ class MessageController {
         update.setUserName(m.getUserName());
         update.setUserName2(m.getUserName2());
         update.setMessageID(m.getMessageID());
-        update.setCreatedAt(m.getCreatedAt());
         update.setLocation(m.getLocation());
         update.setLatitude(m.getLatitude());
         update.setLongitude(m.getLongitude());

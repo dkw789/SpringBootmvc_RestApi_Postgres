@@ -2,7 +2,6 @@ package messaging;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "MESSAGE")
@@ -24,7 +23,8 @@ class Message {
 
     @Column(name = "CREATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+    private java.util.Calendar createdAt;
+    //private Date createdAt;
 
     @Column(name = "MESSAGE_ID")
     @Basic(optional = false)
@@ -78,7 +78,6 @@ class Message {
         this.messageID = messageID;
     }
 
-
     public String getUserName() {
         return userName;
     }
@@ -87,13 +86,13 @@ class Message {
         this.userName = userName;
     }
 
-    public Date getCreatedAt() {
+    /*public Date getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
-    }
+    }*/
 
     public String getLocation() {
         return location;
