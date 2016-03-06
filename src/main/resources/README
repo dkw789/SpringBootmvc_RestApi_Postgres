@@ -1,0 +1,30 @@
+Description: This file contains the commands to CRUD to MongoDB, including default one from MongoRepository and I created ones from MessageController
+
+**These CRUD is the default command from org.springframework.data.mongodb.repository.MongoRepository
+Get
+curl http://localhost:8080/ or curl http://localhost:8080/Message_path
+
+Post
+curl -i -X POST -H "Content-Type:application/json" -d '{  "mID" : "first_m",  "userName" : "Houde",  "createdAt" : "2015-10-16 10:30", "createdBy" : "Houde", "updatedAt" : "2015-10-16 10:30", "updatedBy" : "Houde"}' http://localhost:8080/Message_path
+
+Delete
+curl -X DELETE http://localhost:8080/Message_path/56210a3e44aef352fee4c1ff
+
+Patch
+curl -X PATCH -H "Content-Type:application/json" -d '{ "mID" : "second_m"}' http://localhost:8080/Message_path/56210a8b44aef352fee4c200
+
+
+
+**The CRUD is added through MessageController
+Get
+curl http://localhost:8080/Message
+
+Post
+curl -i -X POST -H "Content-Type:application/json" -d '{  "mID" : "ninth_m",  "userName" : "Houde",  "createdAt" : "2015-10-16 10:30", "createdBy" : "Houde", "updatedAt" : "2015-10-16 10:30", "updatedBy" : "Houde"}' http://localhost:8080/Message
+
+Delete
+curl -X DELETE http://localhost:8080/Message/562124fec830cf3696ab30ba
+
+Patch
+curl -X PATCH -H "Content-Type:application/json" -d '{ "userName" : "Donny"}' http://localhost:8080/Message/56212469c83082dd3d843074
+

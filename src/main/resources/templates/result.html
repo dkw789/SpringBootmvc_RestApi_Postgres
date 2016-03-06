@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+	<h1>Result</h1>
+    <p th:text="'messageID: ' + ${greeting.messageID}" />
+    <p th:text="'userName: ' + ${greeting.userName}" />
+    <p th:text="'userName2: ' + ${greeting.userName2}" />
+    <p th:text="'createdAt: ' + ${greeting.createdAt}" />
+    <p th:text="'location(city): ' + ${greeting.location}" />
+    <p th:text="'city’s latitude: ' + ${greeting.latitude}" />
+    <p th:text="'city’s longitude: ' + ${greeting.longitude}" />
+    <p th:text="'current temperature: ' + ${greeting.temperature}" />
+    <p th:text="' MessageContent: ' + ${greeting.MessageContent}" />
+
+
+</body>
+</html>
+    <!--</p>/>-->
+
+    <!--
+    Capture user’s location (user enters the city) on the form.
+    For every post, include city, city’s latitude and longitude and current temperature.
+    Display this information on the form, next to each post.
+-->
+
+<!--    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            function doAjaxPost() {
+                // get the form values
+                var contextPath ='<jsp:expression>contextPath</jsp:expression>';
+
+                $.ajax({
+                    type: "GET",
+                    url: contextPath+"/noticesAjaxRequest",
+                    dataType: "json",
+                    contentType: 'application/json',
+                    success: function(data){
+                        // we have the response
+                        $('#info').empty().html(data);
+
+                    },
+
+                });
+
+            }
+            setInterval(doAjaxPost,10*1000);
+        });
+
+    </script>
+
+    <div id="info">
+        <c:forEach  items="${noticeForm.noticeList}" var="notice">
+            <c:out value="${notice.coreValue} "/>
+            <c:out value="${notice.description} "/>
+            <br/>
+        </c:forEach>
+    </div>
+
+    <a href="/Message/greeting">Reply</a>
+    -->
+
+
+
