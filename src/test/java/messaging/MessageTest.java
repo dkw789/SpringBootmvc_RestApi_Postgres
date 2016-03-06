@@ -39,7 +39,7 @@ public class MessageTest extends abstractTestClass {
 		obj.setUserName("houde");
 		//obj.setCreatedAt(03/05/2016);
 		obj.setMessageID("007");
-		obj.setMessageContent("Hello");
+		obj.setMessageContent("Yo man");
 		//obj.getLatitude("152");
 		obj.setLongitude("178");
 		obj.setLocation("Markham");
