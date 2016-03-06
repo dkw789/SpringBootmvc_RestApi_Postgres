@@ -27,18 +27,10 @@ public class MessageTest extends abstractTestClass {
 	public void testFindAll() {
 		Collection<Message> obj_list = (Collection<Message>) repo.findAll();
 		Assert.assertNotNull("failure --expecting list not null", obj_list);
-		Assert.assertEquals("failure -- expecting list size", 4, obj_list.size());
+		Assert.assertEquals("failure -- expecting list size", 0, obj_list.size());
 
 	}
 
-	@Test
-	public void testFindOne() {
-		long id = 1;
-		Message obj = repo.findOne(id);
-		Assert.assertNotNull("failure --expecting list not null", obj);
-		Assert.assertEquals("failer --expecting id 1", 1, obj.getId());
-
-	}
 
 	@Test
 	public void testSave() {
@@ -54,9 +46,19 @@ public class MessageTest extends abstractTestClass {
 
 		repo.save(obj);
 		Assert.assertNotNull("failure --expecting list not null", obj);
-		Assert.assertEquals("failer --expecting Messages id to be 007", "007", obj.getMessageID());
+		Assert.assertEquals("failure --expecting Messages id to be 007", "007", obj.getMessageID());
 
 	}
+
+	@Test
+	public void testFindOne() {
+		long id = 1;
+		Message obj = repo.findOne(id);
+		Assert.assertNotNull("failure --expecting list not null", obj);
+		Assert.assertEquals("failure --expecting id 1", 1, obj.getId());
+
+	}
+
 
 	@Test
 	public void testDelete() {

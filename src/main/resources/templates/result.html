@@ -11,7 +11,8 @@
     <p th:text="'messageID: ' + ${greeting.messageID}" />
     <p th:text="'userName: ' + ${greeting.userName}" />
     <p th:text="'userName2: ' + ${greeting.userName2}" />
-    <p th:text="'createdAt: ' + ${greeting.createdAt}" />
+    //<p th:text="'createdAt: ' + ${greeting.createdAt}" />
+    <p th:datetime-local=" createAt  + ${greeting.createdAt}" />
     <p th:text="'location(city): ' + ${greeting.location}" />
     <p th:text="'city’s latitude: ' + ${greeting.latitude}" />
     <p th:text="'city’s longitude: ' + ${greeting.longitude}" />

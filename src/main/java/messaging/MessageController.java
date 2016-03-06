@@ -58,6 +58,7 @@ class MessageController {
         update.setLongitude(m.getLongitude());
         update.setTemperature(m.getTemperature());
         update.setMessageContent(m.getMessageContent());
+        update.setCreatedAt(m.getCreatedAt());
 
 
         return repo.save(update);

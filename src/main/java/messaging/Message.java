@@ -2,11 +2,11 @@ package messaging;
 
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "MESSAGE")
 class Message {
-
 
 
     @Id
@@ -126,6 +126,12 @@ class Message {
         this.temperature = temperature;
     }
 
+    public Calendar getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(Calendar createdAt) {
+        this.createdAt = createdAt;
+    }
 }
 
