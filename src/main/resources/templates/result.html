@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>  Submitted Form </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
@@ -11,8 +11,8 @@
     <p th:text="'messageID: ' + ${greeting.messageID}" />
     <p th:text="'userName: ' + ${greeting.userName}" />
     <p th:text="'userName2: ' + ${greeting.userName2}" />
-    //<p th:text="'createdAt: ' + ${greeting.createdAt}" />
-    <p th:datetime-local=" createAt  + ${greeting.createdAt}" />
+    <!--<p th:text="'createdAt: ' + ${greeting.createdAt}" />-->
+    <p th:datetime-local=" createAt" />
     <p th:text="'location(city): ' + ${greeting.location}" />
     <p th:text="'city’s latitude: ' + ${greeting.latitude}" />
     <p th:text="'city’s longitude: ' + ${greeting.longitude}" />

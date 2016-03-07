@@ -34,7 +34,12 @@ dependencies {
     compile("org.postgresql:postgresql:9.4-1204-jdbc41") 
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     runtime("org.hsqldb:hsqldb:2.3.3")
+    testCompile ('org.unitils:unitils-spring:3.4.2')
+    testCompile ('org.unitils:unitils-dbunit:3.4.2')
+    testCompile ('com.h2database:h2:1.4.189')
+
 }
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7'

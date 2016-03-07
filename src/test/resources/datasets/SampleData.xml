@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<dataset>
+
+	<message id = "1" userName ="donny" userName2="houde" messageID ="1" location="123" latitude ="321" MessageContent ="Hello"/>
+    <message id = "2" userName ="Kenny" userName2="donny" messageID ="2" location="456" latitude ="654" MessageContent ="Hello 2"/>
+    <message id = "3" userName ="William" userName2="Kenny" messageID ="3" location="789" latitude ="987" MessageContent ="Hello 3"/>
+
+
+</dataset>

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/Message")
@@ -34,6 +34,7 @@ class MessageController {
         return repo.findOne(id);
 
     }
+
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
@@ -62,6 +63,7 @@ class MessageController {
 
 
         return repo.save(update);
+
     }
 
     @RequestMapping(value = "/greeting", method = RequestMethod.GET)
@@ -80,14 +82,46 @@ class MessageController {
     }
 
 
-    @RequestMapping(value = "/Messages", method = RequestMethod.GET)
-    public String showAllMessages(Model model) {
+
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    public Map<String, Object> showAllMessages(Model model) {
 
 
-        model.addAttribute("Messages", repo.findAll());
-        return "Messages/list";
+//        model.addAttribute("Messages", repo.findAll());
+//        return repo.findAll();
+
+        Map<String, Object> response = new LinkedHashMap<String, Object>();
+        response.put("MessageContent", "Message created successfully");
+        response.put("UserName", "Admin");
+        return response;
 
     }
+
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    @ResponseBody
+//    public Map<String, String> hello() {
+//        return Collections.singletonMap("message",
+//                this.repo.findOne());
+//    }
+//
+//    @RequestMapping(value = "/", method = RequestMethod.POST)
+//    @ResponseBody
+//    public Map<String, Object> {
+//        Map<String, Object> model = new LinkedHashMap<String, Object>();
+//        model.put("UserName", "Omar");
+//        model.put("MessageContent", "Hello Home");
+//        model.put("date", new Date());
+//        return model;
+//    }
+
+    @RequestMapping("/foo")
+    @ResponseBody
+    public String foo() {
+        throw new IllegalArgumentException("Server error");
+    }
+
+
+
 
 //    @RequestMapping("/messagesAjaxRequest")
 //    public @ResponseBody List<Message> messagesAjaxRequest(@ModelAttribute("MessageForm") Message MessageForm, ModelMap model) {
