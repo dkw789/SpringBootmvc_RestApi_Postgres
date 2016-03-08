@@ -10,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/Message")
@@ -23,7 +26,7 @@ class MessageController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Message> getAll() {
-//        List<Message> msg = (ArrayList<Message>) repo.findAll();
+
         return (List<Message>) repo.findAll();
 
     }
@@ -39,13 +42,18 @@ class MessageController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Message create(@RequestBody Message m) {
+        m.setCreatedAt(new Date());
         return repo.save(m);
     }
+
+
 
     @RequestMapping(method = RequestMethod.DELETE, value = "{id}")
     public void delete(@PathVariable Long id) {
         repo.delete(id);
     }
+
+
 
     @RequestMapping(method = RequestMethod.PUT, value = "{id}")
     public Message update(@PathVariable Long id, @RequestBody Message m) {
@@ -59,7 +67,7 @@ class MessageController {
         update.setLongitude(m.getLongitude());
         update.setTemperature(m.getTemperature());
         update.setMessageContent(m.getMessageContent());
-        update.setCreatedAt(m.getCreatedAt());
+     //   update.setCreatedAt(m.getCreatedAt()));
 
 
         return repo.save(update);

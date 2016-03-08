@@ -24,56 +24,75 @@ public class MessageTest extends abstractTestClass{
 
 	@Autowired
 	private MessageRepository repo;
+    Message obj = new Message();
+
 
 	@Before
 	public void setup() {
-
+        Message obj = new Message();
+        obj.setId(9);
+        obj.setUserName("William");
+        obj.setMessageID("555");
+        obj.setMessageContent("Hey Brother");
+        obj.setLatitude("172");
+        obj.setLongitude("173");
+        obj.setLocation("Downtown");
+        repo.save(obj);
 	}
+
+
 
 	@After
 	public void post_process() {
 
 	}
 
+
+    @Test
+    public void testSave(){
+        Message obj = new Message();
+        obj.setId(4);
+        obj.setUserName("houde");
+        obj.setMessageID("007");
+        obj.setMessageContent("Hello");
+        obj.setLatitude("152");
+        obj.setLongitude("123");
+        obj.setLocation("Markham");
+        repo.save(obj);
+        Assert.assertNotNull("failure --expecting list not null", obj);
+        Assert.assertEquals("failure --expecting Messages id to be 007", "007", obj.getMessageID());
+
+    }
+
+
 	@Test
 //    @DataSet("/datasets/SampleData.xml")
     public void testFindAll() {
+
+
+
 		Collection<Message> obj_list = (Collection<Message>) repo.findAll();
 		Assert.assertNotNull("failure --expecting list not null", obj_list);
-		Assert.assertEquals("failure -- expecting list size", 0, obj_list.size());
+		Assert.assertEquals("failure -- expecting list size", 1, obj_list.size());
 //        Assert.assertEquals("failure -- expecting list size", 3, obj_list.size());
 
 
     }
 
 
-	@Test
-	public void testSave() {
-		Message obj = new Message();
-		obj.setId(4);
-		obj.setUserName("houde");
-		//obj.setCreatedAt(Sun Mar 06 01:57:32 EST 2016);
-		obj.setMessageID("007");
-		obj.setMessageContent("Hello");
-		//obj.getLatitude("152");
-		obj.setLongitude("123");
-		obj.setLocation("Markham");
 
-		repo.save(obj);
-		Assert.assertNotNull("failure --expecting list not null", obj);
-		Assert.assertEquals("failure --expecting Messages id to be 007", "007", obj.getMessageID());
-
-	}
-//    <message id = "1" userName ="donny" userName2="houde" messageID ="1" location="123" latitude ="321" MessageContent ="Hello"/>
 
 	@Test
 //    @DataSet("/datasets/SampleData.xml")
 	public void testFindOne() {
-		long id = 1;
+
+
+		Long id = new Long(1) ;
+
 		Message obj = repo.findOne(id);
 
-		Assert.assertNotNull("failure --expecting list not null", obj);
-//		Assert.assertEquals("failure --expecting id 1", 1, obj.getId());
+//		Assert.assertNotNull("failure --expecting list not null", obj);
+		Assert.assertEquals("failure --expecting id 1", 1, obj.getId(1));
 
 	}
 
@@ -82,11 +101,15 @@ public class MessageTest extends abstractTestClass{
 //    @DataSet("/datasets/SampleData.xml")
     public void testDelete() {
 
-        long id = 1;
-		repo.delete(id);
-        //		Assert.assertNull("failure --expecting Messages 1 to be gone", repo.findOne(id));
+        Long id = new Long(1) ;
+       // long id = 1;
+        repo.delete(id);
+        //repo.delete((long) 1);
+        Assert.assertNull("failure --expecting Messages 1 to be gone", repo.findOne(id));
 
-	}
+
+
+    }
 
 
 }

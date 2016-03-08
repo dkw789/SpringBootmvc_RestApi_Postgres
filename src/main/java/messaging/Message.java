@@ -3,6 +3,7 @@ package messaging;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name = "MESSAGE")
@@ -46,7 +47,7 @@ class Message {
     private String MessageContent;
 
 
-    public long getId() {
+    public long getId(int i) {
         return id;
     }
 
@@ -126,11 +127,11 @@ class Message {
         this.temperature = temperature;
     }
 
-    public Calendar getCreatedAt() {
+    public Calendar getCreatedAt(Date from) {
         return createdAt;
     }
 
-    public void setCreatedAt(Calendar createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }
