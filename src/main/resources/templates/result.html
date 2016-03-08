@@ -3,6 +3,7 @@
 <head>
     <title>  Submitted Form </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<script src="../static/js/date.js" type="text/javascript"></script>-->
 </head>
 
 
@@ -11,8 +12,13 @@
     <p th:text="'messageID: ' + ${greeting.messageID}" />
     <p th:text="'userName: ' + ${greeting.userName}" />
     <p th:text="'userName2: ' + ${greeting.userName2}" />
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML = Date();
+    </script>
     <!--<p th:text="'createdAt: ' + ${greeting.createdAt}" />-->
-    <p th:datetime-local=" createAt" />
+    <!--<p th:datetime-local=" createAt" />-->
     <p th:text="'location(city): ' + ${greeting.location}" />
     <p th:text="'city’s latitude: ' + ${greeting.latitude}" />
     <p th:text="'city’s longitude: ' + ${greeting.longitude}" />

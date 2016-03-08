@@ -30,7 +30,7 @@ public class MessageTest extends abstractTestClass{
 	@Before
 	public void setup() {
         Message obj = new Message();
-        obj.setId(9);
+        //obj.setId(9);
         obj.setUserName("William");
         obj.setMessageID("555");
         obj.setMessageContent("Hey Brother");
@@ -44,14 +44,14 @@ public class MessageTest extends abstractTestClass{
 
 	@After
 	public void post_process() {
-
+//        repo.deleteAll();
 	}
 
 
     @Test
     public void testSave(){
         Message obj = new Message();
-        obj.setId(4);
+//        obj.setId(4);
         obj.setUserName("houde");
         obj.setMessageID("007");
         obj.setMessageContent("Hello");
@@ -85,14 +85,22 @@ public class MessageTest extends abstractTestClass{
 	@Test
 //    @DataSet("/datasets/SampleData.xml")
 	public void testFindOne() {
+        Message obj = new Message();
+//        obj.setId(4);
+        obj.setUserName("houde");
+        obj.setMessageID("007");
+        obj.setMessageContent("Hello");
+        obj.setLatitude("152");
+        obj.setLongitude("123");
+        obj.setLocation("Markham");
+        Message entity = repo.save(obj);
 
+		Long id = new Long(entity.getId()) ;
 
-		Long id = new Long(1) ;
-
-		Message obj = repo.findOne(id);
+		Message resultObj = repo.findOne(id);
 
 //		Assert.assertNotNull("failure --expecting list not null", obj);
-		Assert.assertEquals("failure --expecting id 1", 1, obj.getId(1));
+		Assert.assertEquals(id, new Long(resultObj.getId()));
 
 	}
 
@@ -100,12 +108,21 @@ public class MessageTest extends abstractTestClass{
 	@Test
 //    @DataSet("/datasets/SampleData.xml")
     public void testDelete() {
+        Message obj = new Message();
+//        obj.setId(4);
+        obj.setUserName("houde");
+        obj.setMessageID("007");
+        obj.setMessageContent("Hello");
+        obj.setLatitude("152");
+        obj.setLongitude("123");
+        obj.setLocation("Markham");
+        Message entity = repo.save(obj);
 
-        Long id = new Long(1) ;
+        Long id = new Long(entity.getId()) ;
        // long id = 1;
         repo.delete(id);
         //repo.delete((long) 1);
-        Assert.assertNull("failure --expecting Messages 1 to be gone", repo.findOne(id));
+        Assert.assertNull(repo.findOne(id));
 
 
 

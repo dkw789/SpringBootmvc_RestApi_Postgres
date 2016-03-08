@@ -24,7 +24,7 @@ class Message {
 
     @Column(name = "CREATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Calendar createdAt;
+    private Date createdAt;
     //private Date createdAt;
 
     @Column(name = "MESSAGE_ID")
@@ -127,12 +127,16 @@ class Message {
         this.temperature = temperature;
     }
 
-    public Calendar getCreatedAt(Date from) {
-        return createdAt;
-    }
-
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
     }
 }
 
