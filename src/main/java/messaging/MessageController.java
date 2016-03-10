@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/Message")
+
 class MessageController {
 
 	@Autowired
@@ -39,8 +40,17 @@ class MessageController {
 
 	@RequestMapping(method = RequestMethod.GET, params = { "user1", "user2" })
 	@ResponseBody
-	public List<Message> goToIndividual(@RequestParam("user1") String user1, @RequestParam("user2") String user2) {
-		return repo.findByUserNameAndUserName2(user1, user2);
+	public List<Message> goToIndividual(@RequestParam("user1") String user1, @RequestParam("user2") String user2) throws Exception {
+
+
+			if(user1!= null && user2 != null){
+				return  repo.findByUserNameAndUserName2(user1, user2);
+			}
+		else {
+				throw new Exception("Need two users for retrieve conversation");
+			}
+
+
 
 	}
 

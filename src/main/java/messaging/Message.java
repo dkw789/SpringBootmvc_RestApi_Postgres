@@ -12,6 +12,7 @@ class Message {
 
     @Id
     @GeneratedValue
+    @Column(name = "REC_ID")
     private long id;
 
 

@@ -34,9 +34,13 @@ dependencies {
     compile("org.postgresql:postgresql:9.4-1204-jdbc41") 
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     runtime("org.hsqldb:hsqldb:2.3.3")
-    testCompile ('org.unitils:unitils-spring:3.4.2')
-    testCompile ('org.unitils:unitils-dbunit:3.4.2')
+    //testCompile ('org.unitils:unitils-spring:3.4.2')
+   // testCompile ('org.unitils:unitils-dbunit:3.4.2')
     testCompile ('com.h2database:h2:1.4.189')
+    testCompile ('org.springframework:spring-test:4.1.6.RELEASE')
+    testCompile ('org.dbunit:dbunit:2.5.1')
+    testCompile ('com.github.springtestdbunit:spring-test-dbunit:1.2.1')
+
 
 }
 

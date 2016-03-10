@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <dataset>
 
-	<message id = "1" userName ="donny" userName2="houde" messageID ="1" location="123" latitude ="321" MessageContent ="Hello"/>
-    <message id = "2" userName ="Kenny" userName2="donny" messageID ="2" location="456" latitude ="654" MessageContent ="Hello 2"/>
-    <message id = "3" userName ="William" userName2="Kenny" messageID ="3" location="789" latitude ="987" MessageContent ="Hello 3"/>
+	<Message REC_ID = "1" USER_NAME ="donny" USER_NAME2="houde" MESSAGE_ID ="1" LOCATION="123" LATITUDE ="321" MESSAGECONTENT ="Hello"/>
+    <Message REC_ID = "2" USER_NAME ="Kenny" USER_NAME2="donny" MESSAGE_ID ="2" LOCATION="456" LATITUDE ="654" MESSAGECONTENT ="Hello 2"/>
+    <Message REC_ID = "3" USER_NAME ="William" USER_NAME2="Kenny" MESSAGE_ID ="3" LOCATION="789" LATITUDE ="987" MESSAGECONTENT ="Hello 3"/>
 
 
 </dataset>
