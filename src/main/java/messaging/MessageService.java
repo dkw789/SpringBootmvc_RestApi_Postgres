@@ -6,48 +6,36 @@
 
 package messaging;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-@Controller
-@RequestMapping("/Message")
-
-class MessageController {
+@Service
+class MessageService {
 
 	@Autowired
-	private MessageService service;
+	private MessageRepository repo;
 
-	@RequestMapping(method = RequestMethod.GET)
-	@ResponseBody
+
 	public List<Message> getAll() {
 
-		return (List<Message>) service.getAll();
-
+		return (List<Message>) repo.findAll();
 
 	}
 
-	@RequestMapping(method = RequestMethod.GET, params = { "user1", "user2" })
-	@ResponseBody
-	public List<Message> goToIndividual(@RequestParam("user1") String user1, @RequestParam("user2") String user2) throws Exception {
+
+	public List<Message> goToIndividual( String user1,  String user2) throws Exception {
 
 
 			if(user1!= null && user2 != null){
-				return  service.goToIndividual(user1, user2);
+				return  repo.findByUserNameAndUserName2(user1, user2);
 			}
-
 		else {
 				throw new Exception("Need two users for retrieve conversation");
 			}
@@ -56,28 +44,24 @@ class MessageController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "{id}")
-	@ResponseBody
-	public Message goToIndividual(@PathVariable Long id) {
-		return service.goToIndividual(id);
+	public Message goToIndividual( Long id) {
+		return repo.findOne(id);
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	@ResponseBody
-	public Message create(@RequestBody Message m) {
+
+	public Message create( Message m) {
 		m.setCreatedAt(new Date());
-		return service.create(m);
+		return repo.save(m);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "{id}")
-	public void delete(@PathVariable Long id) {
-		service.delete(id);
+
+	public void delete( Long id) {
+		repo.delete(id);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "{id}")
-	public Message update(@PathVariable Long id, @RequestBody Message m) {
-		Message update = service.goToIndividual(id);
+	public Message update( Long id,  Message m) {
+		Message update = repo.findOne(id);
 
 		update.setUserName(m.getUserName());
 		update.setUserName2(m.getUserName2());
@@ -89,26 +73,26 @@ class MessageController {
 		update.setMessageContent(m.getMessageContent());
 		// update.setCreatedAt(m.getCreatedAt()));
 
-		return service.create(update);
+		return repo.save(update);
 
 	}
 
-	@RequestMapping(value = "/greeting", method = RequestMethod.GET)
+
 	public String greetingForm(Model model) {
 		model.addAttribute("greeting", new Message());
 		return "greeting";
 	}
 
-	@RequestMapping(value = "/greeting", method = RequestMethod.POST)
-	public String greetingSubmit(@ModelAttribute Message greeting, Model model) {
+
+	public String greetingSubmit( Message greeting, Model model) {
 		greeting.setCreatedAt(new Date());
-		service.create(greeting);
+		repo.save(greeting);
 		model.addAttribute("greeting", greeting);
 		// return "redirect:/Message/greeting/result";
 		return "result";
 	}
 
-	@RequestMapping(value = "/result", method = RequestMethod.GET)
+
 	public Map<String, Object> showAllMessages(Model model) {
 
 		// model.addAttribute("Messages", repo.findAll());
@@ -138,8 +122,7 @@ class MessageController {
 	// return model;
 	// }
 
-	@RequestMapping("/foo")
-	@ResponseBody
+
 	public String foo() {
 		throw new IllegalArgumentException("Server error");
 	}
