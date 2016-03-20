@@ -9,7 +9,6 @@ package messaging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -61,19 +60,19 @@ class MessageService {
 	}
 
 	public Message update( Long id,  Message m) {
-		Message update = repo.findOne(id);
+//		Message update = repo.findOne(id);
+//
+//		update.setUserName(m.getUserName());
+//		update.setUserName2(m.getUserName2());
+//		update.setMessageID(m.getMessageID());
+//		update.setLocation(m.getLocation());
+//		update.setLatitude(m.getLatitude());
+//		update.setLongitude(m.getLongitude());
+//		update.setTemperature(m.getTemperature());
+//		update.setMessageContent(m.getMessageContent());
+//		// update.setCreatedAt(m.getCreatedAt()));
 
-		update.setUserName(m.getUserName());
-		update.setUserName2(m.getUserName2());
-		update.setMessageID(m.getMessageID());
-		update.setLocation(m.getLocation());
-		update.setLatitude(m.getLatitude());
-		update.setLongitude(m.getLongitude());
-		update.setTemperature(m.getTemperature());
-		update.setMessageContent(m.getMessageContent());
-		// update.setCreatedAt(m.getCreatedAt()));
-
-		return repo.save(update);
+		return repo.save(m);
 
 	}
 

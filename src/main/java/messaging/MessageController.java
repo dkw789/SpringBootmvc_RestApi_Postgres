@@ -6,21 +6,15 @@
 
 package messaging;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/Message")
@@ -34,7 +28,7 @@ class MessageController {
 	@ResponseBody
 	public List<Message> getAll() {
 
-		return (List<Message>) service.getAll();
+		return service.getAll();
 
 
 	}
@@ -77,19 +71,22 @@ class MessageController {
 
 	@RequestMapping(method = RequestMethod.PUT, value = "{id}")
 	public Message update(@PathVariable Long id, @RequestBody Message m) {
-		Message update = service.goToIndividual(id);
+//		Message update = service.goToIndividual(id);
+//
+//
+//
+//		update.setUserName(m.getUserName());
+//		update.setUserName2(m.getUserName2());
+//		update.setMessageID(m.getMessageID());
+//		update.setLocation(m.getLocation());
+//		update.setLatitude(m.getLatitude());
+//		update.setLongitude(m.getLongitude());
+//		update.setTemperature(m.getTemperature());
+//		update.setMessageContent(m.getMessageContent());
+//		// update.setCreatedAt(m.getCreatedAt()));
 
-		update.setUserName(m.getUserName());
-		update.setUserName2(m.getUserName2());
-		update.setMessageID(m.getMessageID());
-		update.setLocation(m.getLocation());
-		update.setLatitude(m.getLatitude());
-		update.setLongitude(m.getLongitude());
-		update.setTemperature(m.getTemperature());
-		update.setMessageContent(m.getMessageContent());
-		// update.setCreatedAt(m.getCreatedAt()));
 
-		return service.create(update);
+		return service.create(m);
 
 	}
 
