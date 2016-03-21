@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getText</title>
+</head>
+<body>
+
+<p>
+    Enter your Text
+    <br />
+    @Html.TextBox("Text")
+</p>
+
+<input type="button" value="Done" id="Done" />
+<span id="msg" style="color:red;"/>
+<script type="text/javascript">
+    $('#Done').click(function () {
+        var url = "/Message/getText";
+        var Text = $("#Text").val();
+        $.post(url, { Text: Text}, function (data) {
+            $("#msg").html(data);
+        });
+    })
+</script>
+</body>
+</html>
