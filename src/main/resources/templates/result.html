@@ -59,17 +59,19 @@
             setInterval(doAjaxPost,10*1000);
         });
 
-    </script>
 
-    <div id="info">
-        <c:forEach  items="${noticeForm.noticeList}" var="notice">
-            <c:out value="${notice.coreValue} "/>
-            <c:out value="${notice.description} "/>
-            <br/>
-        </c:forEach>
-    </div>
+$.ajax({
+  method: 'GET',
+  dataType: 'json',
+  url: '....'
+  success: function (data) {
+    $('#text-box-id').text('place the data here');
+  },
+  error: function(){ //error handler }
+});
 
-    <a href="/Message/greeting">Reply</a>
+
+
     -->
 
 

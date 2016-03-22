@@ -71,7 +71,7 @@ class MessageService {
 //		update.setTemperature(m.getTemperature());
 //		update.setMessageContent(m.getMessageContent());
 //		// update.setCreatedAt(m.getCreatedAt()));
-
+		m.setCreatedAt(new Date());
 		return repo.save(m);
 
 	}
@@ -104,47 +104,5 @@ class MessageService {
 
 	}
 
-	// @RequestMapping(value = "/", method = RequestMethod.GET)
-	// @ResponseBody
-	// public Map<String, String> hello() {
-	// return Collections.singletonMap("message",
-	// this.repo.findOne());
-	// }
-	//
-	// @RequestMapping(value = "/", method = RequestMethod.POST)
-	// @ResponseBody
-	// public Map<String, Object> {
-	// Map<String, Object> model = new LinkedHashMap<String, Object>();
-	// model.put("UserName", "Omar");
-	// model.put("MessageContent", "Hello Home");
-	// model.put("date", new Date());
-	// return model;
-	// }
 
-
-	public String foo() {
-		throw new IllegalArgumentException("Server error");
-	}
-
-	// @RequestMapping("/messagesAjaxRequest")
-	// public @ResponseBody List<Message> messagesAjaxRequest(@ModelAttribute("MessageForm") Message MessageForm,
-	// ModelMap model) {
-	//
-	// MessageBO.prepareMessageList(MessageForm,model);
-	//
-	// return MessageForm.getMessageList();
-	// }
-	// @RequestMapping(value="/allText{id}", produces = "html/plain;charset=UTF-8")
-	// @ResponseBody
-	// public String allText(@PathVariable("id") int id, @ModelAttribute("cart") Cart cart,Model model)
-	// {
-	// Message m = m.getUserName(id);
-	// if (product != null) {
-	// CartLine line = new CartLine();
-	// line.setProduct(product);
-	// line.setQuantity(1);
-	// productService.updateProduct(product);
-	// }
-	// return "<div>output</div>";
-	// }
 }

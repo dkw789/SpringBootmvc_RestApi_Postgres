@@ -37,13 +37,13 @@ class MessageController {
 	@ResponseBody
 	public List<Message> goToIndividual(@RequestParam("user1") String user1, @RequestParam("user2") String user2) throws Exception {
 
-
 			if(user1!= null && user2 != null){
 				return  service.goToIndividual(user1, user2);
+
 			}
 
 		else {
-				throw new Exception("Need two users for retrieve conversation");
+				throw new Exception("Need two users to retrieve conversation");
 			}
 
 
@@ -72,9 +72,6 @@ class MessageController {
 	@RequestMapping(method = RequestMethod.PUT, value = "{id}")
 	public Message update(@PathVariable Long id, @RequestBody Message m) {
 //		Message update = service.goToIndividual(id);
-//
-//
-//
 //		update.setUserName(m.getUserName());
 //		update.setUserName2(m.getUserName2());
 //		update.setMessageID(m.getMessageID());
@@ -84,7 +81,6 @@ class MessageController {
 //		update.setTemperature(m.getTemperature());
 //		update.setMessageContent(m.getMessageContent());
 //		// update.setCreatedAt(m.getCreatedAt()));
-
 
 		return service.create(m);
 
@@ -106,7 +102,7 @@ class MessageController {
 	}
 
 	@RequestMapping(value = "/result", method = RequestMethod.GET)
-	public Map<String, Object> showAllMessages(Model model) {
+	public Map<String, Object> showAllMessages(@ModelAttribute Model model) {
 
 		// model.addAttribute("Messages", repo.findAll());
 		// return repo.findAll();
@@ -118,48 +114,17 @@ class MessageController {
 
 	}
 
-	// @RequestMapping(value = "/", method = RequestMethod.GET)
-	// @ResponseBody
-	// public Map<String, String> hello() {
-	// return Collections.singletonMap("message",
-	// this.repo.findOne());
-	// }
-	//
-	// @RequestMapping(value = "/", method = RequestMethod.POST)
-	// @ResponseBody
-	// public Map<String, Object> {
-	// Map<String, Object> model = new LinkedHashMap<String, Object>();
-	// model.put("UserName", "Omar");
-	// model.put("MessageContent", "Hello Home");
-	// model.put("date", new Date());
-	// return model;
-	// }
 
-	@RequestMapping("/foo")
-	@ResponseBody
-	public String foo() {
-		throw new IllegalArgumentException("Server error");
+	@RequestMapping(value = "/getText", method = RequestMethod.GET)
+	public String getText(String Text){
+		if (Text != null)
+		  return Text;
+
+		else {
+			//return "Please input text.";
+			return"getText";
+		}
 	}
 
-	// @RequestMapping("/messagesAjaxRequest")
-	// public @ResponseBody List<Message> messagesAjaxRequest(@ModelAttribute("MessageForm") Message MessageForm,
-	// ModelMap model) {
-	//
-	// MessageBO.prepareMessageList(MessageForm,model);
-	//
-	// return MessageForm.getMessageList();
-	// }
-	// @RequestMapping(value="/allText{id}", produces = "html/plain;charset=UTF-8")
-	// @ResponseBody
-	// public String allText(@PathVariable("id") int id, @ModelAttribute("cart") Cart cart,Model model)
-	// {
-	// Message m = m.getUserName(id);
-	// if (product != null) {
-	// CartLine line = new CartLine();
-	// line.setProduct(product);
-	// line.setQuantity(1);
-	// productService.updateProduct(product);
-	// }
-	// return "<div>output</div>";
-	// }
 }
+

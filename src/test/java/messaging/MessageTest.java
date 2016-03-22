@@ -8,15 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 
-/*
-import org.unitils.UnitilsJUnit4TestClassRunner;
-import org.unitils.database.util.TransactionMode;
-import org.unitils.spring.annotation.SpringApplicationContext;
 
-@RunWith(UnitilsJUnit4TestClassRunner.class)
-@org.unitils.database.annotations.Transactional(TransactionMode.ROLLBACK)
-@SpringApplicationContext({ "classpath:spring-context-test.xml" })
-*/
 
 
 @Transactional
@@ -24,7 +16,7 @@ public class MessageTest extends abstractTestClass{
 
 	@Autowired
 	private MessageRepository repo;
-    Message obj = new Message();
+
 
 
 	@Before
@@ -70,9 +62,9 @@ public class MessageTest extends abstractTestClass{
     public void testFindAll() {
 
 
+        Collection<Message> obj_list = (Collection<Message>) repo.findAll();
+        Assert.assertNotNull("failure --expecting list not null", obj_list);
 
-		Collection<Message> obj_list = (Collection<Message>) repo.findAll();
-		Assert.assertNotNull("failure --expecting list not null", obj_list);
 		Assert.assertEquals("failure -- expecting list size", 1, obj_list.size());
 //        Assert.assertEquals("failure -- expecting list size", 3, obj_list.size());
 
