@@ -29,7 +29,7 @@ class MessageService {
 	}
 
 
-	public List<Message> goToIndividual( String user1,  String user2) throws Exception {
+/*	public List<Message> goToIndividual( String user1,  String user2) throws Exception {
 
 
 			if(user1!= null && user2 != null){
@@ -41,7 +41,19 @@ class MessageService {
 
 
 
+	}*/
+public List<Message> goToIndividual( String user1) throws Exception {
+
+
+	if (user1 != null ) {
+		return repo.findByUserName(user1);
+
+	} else {
+		throw new Exception("Need Username to retrieve conversation");
 	}
+
+
+}
 
 	public Message goToIndividual( Long id) {
 		return repo.findOne(id);

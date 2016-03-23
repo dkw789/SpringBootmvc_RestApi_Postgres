@@ -33,7 +33,16 @@ class MessageController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.GET, params = { "user1", "user2" })
+	@RequestMapping(method = RequestMethod.GET, params = { "user1" })
+	@ResponseBody
+	public List<Message> goToIndividual(@RequestParam("user1") String user1) throws Exception {
+
+
+			return  service.goToIndividual(user1);
+
+	}
+
+/*	@RequestMapping(method = RequestMethod.GET, params = { "user1", "user2" })
 	@ResponseBody
 	public List<Message> goToIndividual(@RequestParam("user1") String user1, @RequestParam("user2") String user2) throws Exception {
 
@@ -48,7 +57,7 @@ class MessageController {
 
 
 
-	}
+	}*/
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
 	@ResponseBody
@@ -125,6 +134,18 @@ class MessageController {
 			return"getText";
 		}
 	}
+
+    @RequestMapping(value = "/listing", method = RequestMethod.GET)
+    public String getListing(String listing){
+        if (listing != null)
+            return listing;
+
+        else {
+            //return "Please input text.";
+            return"listing";
+        }
+    }
+
 
 }
 
