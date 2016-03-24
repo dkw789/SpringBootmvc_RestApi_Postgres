@@ -1,7 +1,7 @@
 <!DOCTYPE html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Message List</title>
@@ -24,13 +24,13 @@
         <!--<td th:text="${prod.name}">Onions</td>-->
         <!--<td th:text="${prod.price}">2.41</td>-->
         <!--<h1>Result</h1>-->
-        <p th:text="'messageID: ' + ${greeting.messageID}" />
+    <p th:text="'ParentMessageID: ' + ${greeting.ParentMessageID}"/>
         <p th:text="'userName: ' + ${greeting.userName}" />
         <p th:text="'userName2: ' + ${greeting.userName2}" />
-        <p id="demo"></p>
+    <p id="now"></p>
 
         <script>
-            document.getElementById("demo").innerHTML = Date();
+            document.getElementById("now").innerHTML = Date();
         </script>
         <!--<p th:text="'createdAt: ' + ${greeting.createdAt}" />-->
         <!--<p th:datetime-local=" createAt" />-->

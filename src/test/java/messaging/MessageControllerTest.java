@@ -67,7 +67,7 @@ public class MessageControllerTest extends abstractControllerTestClass{
 
 		Assert.assertEquals("success - expected HTTP status", 200, status);
 		Assert.assertTrue("success - expected HTTP response body to have a value", content.trim().length() > 0);
-		Assert.assertTrue("{\"id\":1,\"userName\":\"donny\",\"userName2\":\"houde\",\"createdAt\":null,\"messageID\":\"1\",\"location\":\"123\",\"latitude\":\"321\",\"longitude\":null,\"temperature\":null,\"messageContent\":\"Hello\"}".equals(content.trim()));
+		Assert.assertTrue("{\"id\":1,\"userName\":\"donny\",\"userName2\":\"houde\",\"createdAt\":null,\"ParentMessageID\":\"1\",\"location\":\"123\",\"latitude\":\"321\",\"longitude\":null,\"temperature\":null,\"messageContent\":\"Hello\"}".equals(content.trim()));
 
 	}
 
@@ -92,8 +92,8 @@ public class MessageControllerTest extends abstractControllerTestClass{
 		int status = result.getResponse().getStatus();
 		Assert.assertEquals("success - expected HTTP status", 200, status);
 		Assert.assertTrue("success - expected HTTP response body to have a value", content.trim().length() > 0);
-		//Assert.assertTrue(content.trim().contains("{"id":1,"userName":"Jin","userName2":"Nesan","createdAt":1458612885798,"messageID":"99","location":"Markham","latitude":"789","longitude":null,"temperature":null,"messageContent":"Hello Nesan"}"));
-		Assert.assertTrue(content.contains("{\"id\":1,\"userName\":\"Jin\",\"userName2\":\"Nesan\",\"messageID\":\"99\",\"location\":\"Markham\",\"latitude\":\"789\",\"longitude\":null,\"temperature\":null,\"messageContent\":\"Hello Nesan\"}"));
+		//Assert.assertTrue(content.trim().contains("{"id":1,"userName":"Jin","userName2":"Nesan","createdAt":1458612885798,"ParentMessageID":"99","location":"Markham","latitude":"789","longitude":null,"temperature":null,"messageContent":"Hello Nesan"}"));
+		Assert.assertTrue(content.contains("{\"id\":1,\"userName\":\"Jin\",\"userName2\":\"Nesan\",\"ParentMessageID\":\"99\",\"location\":\"Markham\",\"latitude\":\"789\",\"longitude\":null,\"temperature\":null,\"messageContent\":\"Hello Nesan\"}"));
 
 	}*/
 
@@ -149,7 +149,7 @@ public class MessageControllerTest extends abstractControllerTestClass{
 		int status = result.getResponse().getStatus();
 		Assert.assertEquals("success - expected HTTP status", 200, status);
 		Assert.assertTrue("success - expected HTTP response body to have a value", content.trim().length() > 0);
-		Assert.assertTrue(content.trim().contains("{\"id\":1,\"userName\":\"Jin\",\"userName2\":\"Bhummi\",\"createdAt\":1458353370913,\"messageID\":\"10\",\"location\":\"Markham\",\"latitude\":\"321\",\"longitude\":null,\"temperature\":null,\"messageContent\":\"Hello\"}"));
+		Assert.assertTrue(content.trim().contains("{\"id\":1,\"userName\":\"Jin\",\"userName2\":\"Bhummi\",\"createdAt\":1458353370913,\"ParentMessageID\":\"10\",\"location\":\"Markham\",\"latitude\":\"321\",\"longitude\":null,\"temperature\":null,\"messageContent\":\"Hello\"}"));
 	}*/
 
 }

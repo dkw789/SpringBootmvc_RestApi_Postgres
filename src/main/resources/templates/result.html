@@ -9,11 +9,10 @@
 
 <body>
 	<h1>Result</h1>
-    <p th:text="'messageID: ' + ${greeting.messageID}" />
+    <p th:text="'ParentMessageID: ' + ${greeting.ParentMessageID}"/>
     <p th:text="'userName: ' + ${greeting.userName}" />
     <p th:text="'userName2: ' + ${greeting.userName2}" />
     <p id="demo"></p>
-
     <script>
         document.getElementById("demo").innerHTML = Date();
     </script>

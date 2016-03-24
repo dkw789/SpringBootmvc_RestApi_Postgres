@@ -1,9 +1,12 @@
 <?xml version="1.0" ?>
 <dataset>
 
-	<Message REC_ID = "1" USER_NAME ="donny" USER_NAME2="houde" MESSAGE_ID ="1" LOCATION="123" LATITUDE ="321" MESSAGECONTENT ="Hello"/>
-    <Message REC_ID = "2" USER_NAME ="Kenny" USER_NAME2="donny" MESSAGE_ID ="2" LOCATION="456" LATITUDE ="654" MESSAGECONTENT ="Hello 2"/>
-    <Message REC_ID = "3" USER_NAME ="William" USER_NAME2="Kenny" MESSAGE_ID ="3" LOCATION="789" LATITUDE ="987" MESSAGECONTENT ="Hello 3"/>
+    <Message REC_ID="1" USER_NAME="donny" USER_NAME2="houde" PARENT_MESSAGE_ID="1" LOCATION="123" LATITUDE="321"
+             MESSAGECONTENT="Hello"/>
+    <Message REC_ID="2" USER_NAME="Kenny" USER_NAME2="donny" PARENT_MESSAGE_ID="2" LOCATION="456" LATITUDE="654"
+             MESSAGECONTENT="Hello 2"/>
+    <Message REC_ID="3" USER_NAME="William" USER_NAME2="Kenny" PARENT_MESSAGE_ID="3" LOCATION="789" LATITUDE="987"
+             MESSAGECONTENT="Hello 3"/>
 
 
 </dataset>

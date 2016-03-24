@@ -6,10 +6,11 @@
 </head>
 <body>
 <h1>Form</h1>
+<!--/*@thymesVar id="greeting" type="templates"*/-->
     <form action="#" th:action="@{/Message/greeting}" th:object="${greeting}" method="post">
 
 
-    <p>MessageID: <input type="text" th:field="*{messageID}"/></p>
+        <p>MessageID: <input type="text" th:field="*{ParentMessageID}"/></p>
     <p>UserName: <input type="text" th:field="*{userName}"/></p>
     <p>UserName2: <input type="text" th:field="*{userName2}"/></p>
     <!--<p>CreatedAt: <input type="text" th:field="*{createdAt}"/></p>-->
@@ -33,7 +34,7 @@
     <p><input type="submit" value="Submit"/>  <input type="reset" value="Reset"/></p>
         <p>
 <!---->
-            <input type="button" value="reply" id="reply"  class="btn warning" />
+            <!--<input type="button" value="reply" id="reply"  class="btn warning" />-->
 
         </p>
 </form>
