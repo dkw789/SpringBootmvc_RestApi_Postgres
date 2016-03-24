@@ -80,18 +80,8 @@ class MessageController {
 
 	@RequestMapping(method = RequestMethod.PUT, value = "{id}")
 	public Message update(@PathVariable Long id, @RequestBody Message m) {
-//		Message update = service.goToIndividual(id);
-//		update.setUserName(m.getUserName());
-//		update.setUserName2(m.getUserName2());
-//		update.setMessageID(m.getMessageID());
-//		update.setLocation(m.getLocation());
-//		update.setLatitude(m.getLatitude());
-//		update.setLongitude(m.getLongitude());
-//		update.setTemperature(m.getTemperature());
-//		update.setMessageContent(m.getMessageContent());
-//		// update.setCreatedAt(m.getCreatedAt()));
 
-		return service.create(m);
+		return service.update(id, m);
 
 	}
 
@@ -145,6 +135,35 @@ class MessageController {
             return"listing";
         }
     }
+
+
+
+
+/*
+	public void process(
+			HttpServletRequest request, HttpServletResponse response,
+			ServletContext servletContext, TemplateEngine templateEngine) {
+		List<Message> allmessages = service.getAll();
+		WebContext ctx = new WebContext(request, servletContext, request.getLocale());
+		ctx.setVariable("msgs", allmessages);
+		templateEngine.process("listing", ctx, response.getWriter());
+	}
+	*/
+
+/*	@RequestMapping(value="/seedstartermng", params={"addRow"})
+	public String addRow(final MessageService seedStarter, final BindingResult bindingResult) {
+		seedStarter.getAll().add(new Message());
+		return "seedstartermng";
+	}
+	@RequestMapping(value="/seedstartermng", params={"removeRow"})
+	public String removeRow(
+			final MessageService seedStarter, final BindingResult bindingResult,
+			final HttpServletRequest req) {
+		final Integer rowId = Integer.valueOf(req.getParameter("removeRow"));
+		seedStarter.getAll().remove(rowId.intValue());
+		return "seedstartermng";
+	}*/
+
 
 
 }

@@ -72,19 +72,18 @@ public List<Message> goToIndividual( String user1) throws Exception {
 	}
 
 	public Message update( Long id,  Message m) {
-//		Message update = repo.findOne(id);
-//
-//		update.setUserName(m.getUserName());
-//		update.setUserName2(m.getUserName2());
-//		update.setMessageID(m.getMessageID());
-//		update.setLocation(m.getLocation());
-//		update.setLatitude(m.getLatitude());
-//		update.setLongitude(m.getLongitude());
-//		update.setTemperature(m.getTemperature());
-//		update.setMessageContent(m.getMessageContent());
-//		// update.setCreatedAt(m.getCreatedAt()));
+		Message update = repo.findOne(id);
+		update.setUserName(m.getUserName());
+		update.setUserName2(m.getUserName2());
+		update.setParentMessageID(m.getParentMessageID());
+		update.setLocation(m.getLocation());
+		update.setLatitude(m.getLatitude());
+		update.setLongitude(m.getLongitude());
+		update.setTemperature(m.getTemperature());
+		update.setMessageContent(m.getMessageContent());
+		// update.setCreatedAt(m.getCreatedAt()));
 		m.setCreatedAt(new Date());
-		return repo.save(m);
+		return repo.save(update);
 
 	}
 

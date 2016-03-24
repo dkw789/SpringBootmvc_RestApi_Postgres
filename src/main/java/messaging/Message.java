@@ -9,21 +9,27 @@ import java.util.Date;
 class Message {
 
 
-    @Column(name = "PARENT_PARENT_MESSAGE_ID")
+    @Column(name = "PARENT_MESSAGE_ID")
     @Basic(optional = false)
     public String ParentMessageID;
+
     @Id
     @GeneratedValue
     @Column(name = "REC_ID")
     private long id;
+
     @Column(name = "USER_NAME")
     private String userName;
+
     @Column(name = "USER_NAME2")
     private String userName2;
+
     //private Date createdAt;
     @Column(name = "CREATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+
+
     @Column(name = "LOCATION")
     private String location;
 
@@ -40,16 +46,29 @@ class Message {
     private String MessageContent;
 
 
-    public long getId(int i) {
+    public long getId() {
         return id;
     }
 
-    public String getMessageID() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
+    public String getParentMessageID() {
         return ParentMessageID;
     }
 
-    public void setMessageID(String ParentMessageID) {
-        this.ParentMessageID = ParentMessageID;
+    public void setParentMessageID(String parentMessageID) {
+        this.ParentMessageID = parentMessageID;
     }
 
     public String getUserName2() {
@@ -80,13 +99,6 @@ class Message {
         return location;
     }
 
-    /*public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }*/
 
     public void setLocation(String location) {
         this.location = location;
@@ -116,20 +128,6 @@ class Message {
         this.temperature = temperature;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
 }
 
