@@ -38,7 +38,9 @@ To run it :
 
 
 1) Install Postgres SQL and create a database with name “test”
+
 2) $ gradle clean build
+
 3) Then to start either: 
  $ gradle run 
    or
